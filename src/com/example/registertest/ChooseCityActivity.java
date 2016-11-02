@@ -1,11 +1,9 @@
 package com.example.registertest;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.app.ExpandableListActivity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -16,6 +14,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 public class ChooseCityActivity extends ExpandableListActivity {
 	private String[] provinces=new String[]{"江西","江苏","浙江"};
@@ -38,6 +37,13 @@ public class ChooseCityActivity extends ExpandableListActivity {
 				// TODO Auto-generated method stub
 				return childPosition;
 			}
+			
+			@Override
+			public int getChildrenCount(int groupPosition) {
+				// TODO Auto-generated method stub
+				return cities[groupPosition].length;
+			}
+
 			private TextView getTextView(){
 				AbsListView.LayoutParams lp=new AbsListView.LayoutParams(
 						ViewGroup.LayoutParams.MATCH_PARENT,64);
@@ -45,7 +51,7 @@ public class ChooseCityActivity extends ExpandableListActivity {
 				textView.setLayoutParams(lp);
 				textView.setGravity(Gravity.CENTER_VERTICAL |Gravity.LEFT);
 				textView.setPadding(36, 0, 0, 0);
-				textView.setText(20);
+				textView.setTextSize(20);
 				return textView;
 				
 			}
@@ -58,12 +64,7 @@ public class ChooseCityActivity extends ExpandableListActivity {
 				return textView;
 			}
 
-			@Override
-			public int getChildrenCount(int groupPosition) {
-				// TODO Auto-generated method stub
-				return cities[groupPosition].length;
-			}
-
+		
 			@Override
 			public Object getGroup(int groupPosition) {
 				// TODO Auto-generated method stub
@@ -105,12 +106,12 @@ public class ChooseCityActivity extends ExpandableListActivity {
 				// TODO Auto-generated method stub
 				return false;
 			}
-			
+
+		
 		};
 		setListAdapter(adapter);
 		getExpandableListView().setOnChildClickListener(
 				new OnChildClickListener(){
-
 					@Override
 					public boolean onChildClick(ExpandableListView parent,
 							View v, int groupPosition, int childPosition,
@@ -125,13 +126,6 @@ public class ChooseCityActivity extends ExpandableListActivity {
 					}
 		
 		});
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.choose_city, menu);
-		return true;
 	}
 
 }

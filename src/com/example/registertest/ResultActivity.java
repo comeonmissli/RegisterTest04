@@ -18,9 +18,9 @@ public class ResultActivity extends Activity {
 		TextView resultGender=(TextView ) this.findViewById(R.id.resultGender);
 		Intent intent=getIntent();
 		resultName.setText(intent.getStringExtra("name"));
-		resultCity.setText(intent.getStringExtra("City"));
-		resultPsd.setText(intent.getStringExtra("Psd"));
-		resultGender.setText(intent.getStringExtra("Gender"));
+		resultCity.setText(intent.getStringExtra("city"));
+		resultPsd.setText(intent.getStringExtra("psd"));
+		resultGender.setText(intent.getStringExtra("gender"));
 	}
 
 	@Override
